@@ -35,6 +35,8 @@ ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'admin123')
 db = SQLAlchemy(app)
 
 class Report(db.Model):
+    with app.app_context():
+    db.create_all()
     id = db.Column(db.Integer, primary_key=True)
     area_trabajo = db.Column(db.String(120), nullable=False)
     lugar_trabajo = db.Column(db.String(200), nullable=False)
