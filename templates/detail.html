@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<a class="btn btn-link" href="{{ url_for('admin', key=key) }}">&larr; Volver</a>
+<div class="card shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <strong>Reporte #{{ r.id }}</strong>
+  </div>
+  <div class="card-body">
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <div class="text-muted small">Fecha</div>
+        <div>{{ r.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-muted small">Área</div>
+        <div>{{ r.area_trabajo }}</div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-muted small">Especialidad</div>
+        <div>{{ r.especialidad }}</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="text-muted small">Lugar</div>
+      <div>{{ r.lugar_trabajo }}</div>
+    </div>
+    <div class="mb-3">
+      <div class="text-muted small">Actividad</div>
+      <div class="border rounded p-2 bg-light">{{ r.actividad }}</div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="text-muted small mb-1">Foto ANTES</div>
+        {% if r.foto_antes %}
+          <img src="{{ r.foto_antes }}" class="img-fluid rounded border">
+        {% else %}
+          <div class="alert alert-secondary">Sin imagen</div>
+        {% endif %}
+      </div>
+      <div class="col-md-6">
+        <div class="text-muted small mb-1">Foto DESPUÉS</div>
+        {% if r.foto_despues %}
+          <img src="{{ r.foto_despues }}" class="img-fluid rounded border">
+        {% else %}
+          <div class="alert alert-secondary">Sin imagen</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

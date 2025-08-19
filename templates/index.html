@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Formulario de Reporte</h5>
+      </div>
+      <div class="card-body">
+        <form action="{{ url_for('submit') }}" method="POST" enctype="multipart/form-data">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Área de trabajo *</label>
+              <input class="form-control" name="area_trabajo" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Lugar de trabajo *</label>
+              <input class="form-control" name="lugar_trabajo" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Especialidad *</label>
+              <input class="form-control" name="especialidad" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Actividad a realizar / realizada *</label>
+              <textarea class="form-control" name="actividad" rows="4" required></textarea>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Foto ANTES (PNG/JPG/WEBP)</label>
+              <input type="file" class="form-control" name="foto_antes" accept=".png,.jpg,.jpeg,.webp">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Foto DESPUÉS (PNG/JPG/WEBP)</label>
+              <input type="file" class="form-control" name="foto_despues" accept=".png,.jpg,.jpeg,.webp">
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mt-4">
+            <button class="btn btn-primary">Guardar reporte</button>
+          </div>
+        </form>
+        <hr>
+        <div class="text-muted small">¿Eres supervisor? Visita el <a href="{{ url_for('admin') }}">panel</a>.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

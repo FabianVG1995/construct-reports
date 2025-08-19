@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="alert alert-warning shadow-sm">
+      <strong>Acceso restringido.</strong> Para entrar al panel, añade <code>?key=TU_PASSWORD</code> a la URL.
+      <div class="mt-2">Ejemplo: <code>/admin?key=admin123</code></div>
+      <div class="mt-2">Cambia el password en <code>.env</code> (ADMIN_PASSWORD) para mayor seguridad.</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
